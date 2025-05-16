@@ -10,5 +10,5 @@ family = "JetBrainsMono Nerd Font Mono"
 style = "Light"
 
 [shell]
-args = ["-l", "-c", "tmux attach || tmux"]
+# args = ["-l", "-c", "tmux attach || tmux"]
 program = "/bin/zsh"
