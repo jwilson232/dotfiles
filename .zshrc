@@ -10,13 +10,19 @@ alias vpn='sudo openvpn --config ~/.vpn/refinery-vpn-client.ovpn'
 alias platform='cd ~/code/refinery-next-platform' 
 alias lib='cd ~/code/refinery-next-lib' 
 
-plugins=(git vi-mode)
+source "$HOME/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
 
-ZSH_THEME="garyblessington"
-# ZSH_THEME="minimal"
+git_branch() {
+  local branch
+  branch=$(git symbolic-ref --short HEAD 2>/dev/null) || return
+  echo " (%F{green}${branch}%f)"
+}
+
+autoload -Uz colors && colors
+setopt prompt_subst
+PROMPT='%F{blue}%1~%f$(git_branch) '
+
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
 export PYTHON_VENV_NAME=.venv
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
