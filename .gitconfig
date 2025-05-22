@@ -1,0 +1,10 @@
+[user]
+	name = jwilson232
+	email = joseph.wilson@thedatarefinery.co.uk
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[push]
+	autoSetupRemote = true
+[alias]
+	update-feature = "!f() { \\\n  branch=$(git branch --show-current); \\\n  if [ \"$branch\" = \"main\" ] || [ \"$branch\" = \"master\" ]; then \\\n    echo \"You are on the $branch branch. Please switch to a feature branch.\"; \\\n    return 1; \\\n  fi; \\\n  if git show-ref --verify --quiet refs/heads/main; then \\\n    base_branch=\"main\"; \\\n  elif git show-ref --verify --quiet refs/heads/master; then \\\n    base_branch=\"master\"; \\\n  else \\\n    echo \"Neither main nor master branch exists.\"; \\\n    return 1; \\\n  fi; \\\n  git checkout $base_branch && \\\n  git pull && \\\n  git checkout \"$branch\" && \\\n  git rebase $base_branch; \\\n}; f"
+	squash = "!f() { git add . && git commit -m \".\" && git rebase -i HEAD~$1; }; f"
