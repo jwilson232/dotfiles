@@ -1,3 +1,4 @@
+```
 brew install --cask miniconda
 conda init zsh
 brew install nvim
@@ -6,3 +7,4 @@ git clone git@github.com:softmoth/zsh-vim-mode.git
 brew install stow
 cd dotfiles
 stow .
+```
