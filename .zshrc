@@ -1,13 +1,15 @@
 export EDITOR=nvim
 alias vim=nvim
 alias ll='ls -lah'
-alias api='cd ~/code/refinery-next-api/ && conda activate fastapi' 
+alias api='cd ~/code/refinery-next-api/fast_api_v2/ && conda activate fastapi' 
 alias pipeline='cd ~/code/refinery-next-pipeline' 
 alias ui='cd ~/code/refinery-next-ui' 
 alias orch='cd ~/code/refinery-next-orchestration && conda activate orch' 
 alias vpn='sudo openvpn --config ~/.vpn/refinery-vpn-client.ovpn'
 alias platform='cd ~/code/refinery-next-platform' 
 alias lib='cd ~/code/refinery-next-lib && conda activate lib' 
+
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 source "$HOME/code/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
@@ -46,3 +48,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="$HOME/.docker/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpg/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
